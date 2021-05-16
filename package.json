@@ -1,0 +1,15 @@
+{
+  "name": "TIL",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/sm9171/TIL.git",
+  "author": "sm9171@nate.com <sm9171@nate.com>",
+  "scripts": {
+    "docs:dev": "vuepress dev --port 8000",
+    "docs:build": "vuepress build"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^1.8.2"
+  }
+}
