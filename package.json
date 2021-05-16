@@ -5,8 +5,8 @@
   "repository": "https://github.com/sm9171/TIL.git",
   "author": "sm9171@nate.com <sm9171@nate.com>",
   "scripts": {
-    "docs:dev": "vuepress dev --port 8000",
-    "docs:build": "vuepress build"
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
   },
   "license": "MIT",
   "devDependencies": {

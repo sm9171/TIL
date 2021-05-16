@@ -3,6 +3,7 @@ var CONST = require("./const");
 module.exports = {
     title: '나상민의 TIL', // 사이트 타이틀
     description: '생각 정리',
+    base: '/TIL/',
     themeConfig: {
         logo: 'https://avatars1.githubusercontent.com/u/18749057?s=460&v=4', // 로고 이미지
         nav: [
