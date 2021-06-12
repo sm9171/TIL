@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>문자열 | 나상민의 TIL</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="생각 정리">
+    
+    <link rel="preload" href="/TIL/assets/css/0.styles.dd5ac3b9.css" as="style"><link rel="preload" href="/TIL/assets/js/app.0bd6cdc4.js" as="script"><link rel="preload" href="/TIL/assets/js/2.1749cfc4.js" as="script"><link rel="preload" href="/TIL/assets/js/7.6e4950ec.js" as="script"><link rel="prefetch" href="/TIL/assets/js/10.087d7a66.js"><link rel="prefetch" href="/TIL/assets/js/11.0b89a3d9.js"><link rel="prefetch" href="/TIL/assets/js/12.df1572ca.js"><link rel="prefetch" href="/TIL/assets/js/3.2def807a.js"><link rel="prefetch" href="/TIL/assets/js/4.ba3164ba.js"><link rel="prefetch" href="/TIL/assets/js/5.01799cc0.js"><link rel="prefetch" href="/TIL/assets/js/6.0377ba0c.js"><link rel="prefetch" href="/TIL/assets/js/8.c96dca77.js"><link rel="prefetch" href="/TIL/assets/js/9.e2415d59.js">
+    <link rel="stylesheet" href="/TIL/assets/css/0.styles.dd5ac3b9.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/TIL/" class="home-link router-link-active"><img src="https://avatars1.githubusercontent.com/u/18749057?s=460&amp;v=4" alt="나상민의 TIL" class="logo"> <span class="site-name can-hide">나상민의 TIL</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/TIL/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="https://github.com/sm9171/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><a href="https://naccoon.tistory.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Blog
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/TIL/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="https://github.com/sm9171/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><a href="https://naccoon.tistory.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Blog
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Monthly I Learned</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Algorithm</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/TIL/Algorithm/String.html" aria-current="page" class="active sidebar-link">문자열</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/TIL/Algorithm/String.html#boj-11654-아스키-코드" class="sidebar-link">BOJ-11654 아스키 코드</a></li><li class="sidebar-sub-header"><a href="/TIL/Algorithm/String.html#boj-11720-숫자의-합" class="sidebar-link">BOJ-11720 숫자의 합</a></li><li class="sidebar-sub-header"><a href="/TIL/Algorithm/String.html#boj-10809-알파벳-찾기" class="sidebar-link">BOJ-10809 알파벳 찾기</a></li><li class="sidebar-sub-header"><a href="/TIL/Algorithm/String.html#boj" class="sidebar-link">BOJ-</a></li><li class="sidebar-sub-header"><a href="/TIL/Algorithm/String.html#boj-1157-단어공부" class="sidebar-link">BOJ-1157 단어공부</a></li><li class="sidebar-sub-header"><a href="/TIL/Algorithm/String.html#boj-2" class="sidebar-link">BOJ-</a></li></ul></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Books</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Blogs</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="문자열"><a href="#문자열" class="header-anchor">#</a> 문자열</h1> <h2 id="boj-11654-아스키-코드"><a href="#boj-11654-아스키-코드" class="header-anchor">#</a> BOJ-11654 아스키 코드</h2> <p><strong>[문제]</strong>
+알파벳 소문자, 대문자, 숫자 0-9중 하나가 주어졌을 때, 주어진 글자의 아스키 코드값을 출력하는 프로그램을 작성하시오.</p> <p><strong>[예제입출력]</strong></p> <div class="language- extra-class"><pre class="language-text"><code>A
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>65
+</code></pre></div><p><strong>[문제 해결 과정]</strong></p> <ol><li>ord 함수를 사용하여 아스키코드를 숫자로 변형</li></ol> <p><strong>[내 코드]</strong></p> <div class="language-python extra-class"><pre class="language-python"><code>a<span class="token operator">=</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">ord</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre></div><h2 id="boj-11720-숫자의-합"><a href="#boj-11720-숫자의-합" class="header-anchor">#</a> BOJ-11720 숫자의 합</h2> <p><strong>[문제]</strong>
+N개의 숫자가 공백 없이 쓰여있다. 이 숫자를 모두 합해서 출력하는 프로그램을 작성하시오.</p> <p><strong>[예제입출력]</strong></p> <div class="language- extra-class"><pre class="language-text"><code>5
+54321
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>15
+</code></pre></div><p><strong>[문제 해결 과정]</strong></p> <ol><li>nums에 숫자를 받아서 for in 문으로 돌려서 빈값에 더함.</li></ol> <p><strong>[내 코드]</strong></p> <div class="language-python extra-class"><pre class="language-python"><code>n <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+nums <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+total <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> nums<span class="token punctuation">:</span>
+    total <span class="token operator">+=</span> <span class="token builtin">int</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>total<span class="token punctuation">)</span>
+</code></pre></div><h2 id="boj-10809-알파벳-찾기"><a href="#boj-10809-알파벳-찾기" class="header-anchor">#</a> BOJ-10809 알파벳 찾기</h2> <p><strong>[문제]</strong>
+알파벳 소문자로만 이루어진 단어 S가 주어진다. 각각의 알파벳에 대해서, 단어에 포함되어 있는 경우에는 처음 등장하는 위치를, 포함되어 있지 않은 경우에는 -1을 출력하는 프로그램을 작성하시오.</p> <p><strong>[예제입출력]</strong></p> <div class="language- extra-class"><pre class="language-text"><code>baekjoon
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>1 0 -1 -1 2 -1 -1 -1 -1 4 3 -1 -1 7 5 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+</code></pre></div><p><strong>[문제 해결 과정]</strong></p> <ol><li>input에는 비교할 단어를 입력하고 alphabet에는 아스키 코드(97에서 123)를 입력한다.</li> <li>find를 이용해 단어를 찾는다.(find메소드를 이용하면 괄호 안에 있는 문자값의 인덱스를 변환해준다.없으면 -1을 변환)</li></ol> <p><strong>[내 코드]</strong></p> <div class="language-python extra-class"><pre class="language-python"><code>word <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+alphabet <span class="token operator">=</span> <span class="token builtin">list</span><span class="token punctuation">(</span><span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">97</span><span class="token punctuation">,</span><span class="token number">123</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment"># 아스키코드 숫자 범위</span>
+
+<span class="token keyword">for</span> x <span class="token keyword">in</span> alphabet <span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>word<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token builtin">chr</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> 
+</code></pre></div><h2 id="boj"><a href="#boj" class="header-anchor">#</a> BOJ-</h2> <p><strong>[문제]</strong>
+문자열 S를 입력받은 후에, 각 문자를 R번 반복해 새 문자열 P를 만든 후 출력하는 프로그램을 작성하시오. 즉, 첫 번째 문자를 R번 반복하고, 두 번째 문자를 R번 반복하는 식으로 P를 만들면 된다. S에는 QR Code &quot;alphanumeric&quot; 문자만 들어있다.</p> <p>QR Code &quot;alphanumeric&quot; 문자는 0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ$%*+-./: 이다.
+<strong>[예제입출력]</strong></p> <div class="language- extra-class"><pre class="language-text"><code>2
+3 ABC
+5 /HTP
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>AAABBBCCC
+/////HHHHHTTTTTPPPPP
+</code></pre></div><p><strong>[문제 해결 과정]</strong></p> <ol><li>n에 테스트 케이스 갯수를 입력한다.</li> <li>n만큼 for문을 실행하고 cnt와 word에 각각 값을 넣어준다.</li> <li>word를 for문에 실행하여 cnt만큼 실행한다.(end=''를 이용해 옆으로 붙인다.)</li></ol> <p><strong>[내 코드]</strong></p> <div class="language-python extra-class"><pre class="language-python"><code>n <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token keyword">for</span> _ <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    cnt<span class="token punctuation">,</span> word <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">for</span> x <span class="token keyword">in</span> word<span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token operator">*</span><span class="token builtin">int</span><span class="token punctuation">(</span>cnt<span class="token punctuation">)</span><span class="token punctuation">,</span> end<span class="token operator">=</span><span class="token string">''</span><span class="token punctuation">)</span>  <span class="token comment"># end='' 옆으로 붙임</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment"># 줄넘김</span>
+</code></pre></div><h2 id="boj-1157-단어공부"><a href="#boj-1157-단어공부" class="header-anchor">#</a> BOJ-1157 단어공부</h2> <p><strong>[문제]</strong>
+알파벳 대소문자로 된 단어가 주어지면, 이 단어에서 가장 많이 사용된 알파벳이 무엇인지 알아내는 프로그램을 작성하시오. 단, 대문자와 소문자를 구분하지 않는다.단, 가장 많이 사용된 알파벳이 여러 개 존재하는 경우에는 ?를 출력한다.</p> <p><strong>[예제입출력]</strong></p> <div class="language- extra-class"><pre class="language-text"><code>baaa
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>A
+</code></pre></div><p><strong>[문제 해결 과정]</strong></p> <ol><li>해결방법</li></ol> <p><strong>[내 코드]</strong></p> <div class="language-python extra-class"><pre class="language-python"><code></code></pre></div><h2 id="boj-2"><a href="#boj-2" class="header-anchor">#</a> BOJ-</h2> <p><strong>[문제]</strong></p> <p><strong>[예제입출력]</strong></p> <div class="language- extra-class"><pre class="language-text"><code></code></pre></div><div class="language- extra-class"><pre class="language-text"><code></code></pre></div><p><strong>[문제 해결 과정]</strong></p> <ol><li>해결방법</li></ol> <p><strong>[내 코드]</strong></p> <div class="language-python extra-class"><pre class="language-python"><code></code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/TIL/MIL/2021.06.html" class="prev">
+        2021년 6월
+      </a></span> <span class="next"><a href="/TIL/Books/Clean Code.html">
+        Clean Code-Rovert C.Martin
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/TIL/assets/js/app.0bd6cdc4.js" defer></script><script src="/TIL/assets/js/2.1749cfc4.js" defer></script><script src="/TIL/assets/js/7.6e4950ec.js" defer></script>
+  </body>
+</html>
