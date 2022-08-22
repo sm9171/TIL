@@ -1,6 +1,5 @@
 exports.MILList = [
-    "MIL/2021.05.md",
-    "MIL/2021.06.md",
+    "MIL/2022.08.md",
 ];
 
 exports.BooksList = [
