@@ -20,10 +20,6 @@ module.exports = {
                 title: 'Books',
                 children: CONST.BooksList
             },
-            {
-                title: 'Principle',
-                children: CONST.PrincipleList
-            },
         ]
         , smoothScroll: true // 부드러운 스크롤 사용 여부
     }
