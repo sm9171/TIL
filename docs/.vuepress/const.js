@@ -6,3 +6,7 @@ exports.MILList = [
 exports.BooksList = [
     "Books/Clean Code.md",
 ];
+
+exports.PrincipleList = [
+    "Principle/DesignPattern.md",
+];
