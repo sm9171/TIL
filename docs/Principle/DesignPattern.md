@@ -153,6 +153,178 @@ Invoker 클래스는 Command 인터페이스를 가진 객체의 execute() 메�
 - 단 하나의 커맨드에 대해 클래스가 많아진다.
 
 # Strategy 패턴
+객체들이 할 수 있는 행위 각각에 대해 전략 클래스를 생성하고, 유사한 행위들을 캡슐화 하는 인터페이스를 정의하여,
+객체의 행위를 동적으로 바꾸고 싶은 경우 직접 행위를 수정하지 않고 전략을 바꿔주기만 함으로써 행위를 유연하게 확장하는 방법을 말합니다.
+
+## 전략패턴과 커멘드 패턴의 차이점
+### 전략패턴 예시
+전략 패턴은 프로그램이 진행되면서 캡슐화된 로직을 선택할 수 있게 하는 디자인 패턴입니다. 로직 실행은 인터페이스에 의존을 시키고 인터페이스를 구현한 로직들을 전달해줌으로써 분기처리 없이 유연성을 갖출 수가 있습니다
+```java
+public class PeopleWithMovement {
+
+    private Transportation transportation;
+
+    public PeopleWithMovement(Transportation transportation) {
+        this.transportation = transportation;
+    }
+
+    public void move(String start, String end) {
+        transportation.move(start, end);
+    }
+
+    public void changeTransporation(Transportation transportation) {
+        this.transportation = transportation;
+    }
+}
+```
+```java
+public interface Transportation {
+
+    void move(String start, String end);
+}
+
+public class Bicycle implements Transportation {
+
+    @Override
+    public void move(String start, String end){
+        System.out.println("출발점 : " + start + "에서 목적지 : " + end + "까지 `자전거`로 이동합니다.");
+    }
+}
+
+public class Bus implements Transportation {
+
+    @Override
+    public void move(String start, String end){
+        System.out.println("출발점 : " + start + "에서 목적지 : " + end + "까지 `버스`로 이동합니다.");
+    }
+}
+```
+```java
+public class Main {
+
+    public static void main(String[] args) {
+        Bicycle bicycle = new Bicycle();
+        Bus bus = new Bus();
+
+        PeopleWithMovement whybeFirst = new PeopleWithMovement(bicycle);
+        whybeFirst.move("시작점", "끝점");
+
+        PeopleWithMovement whybeSecond = new PeopleWithMovement(bus);
+        whybeSecond.move("시작점", "끝점");
+
+        PeopleWithMovement whybeChangeMovement = new PeopleWithMovement(bicycle);
+        whybeChangeMovement.move("시작점", "중간지점");
+        whybeChangeMovement.changeTransporation(bus);
+        whybeChangeMovement.move("중간지점", "끝점");
+    }
+}
+```
+>- 출발점 : 시작점에서 목적지 : 끝점까지 `자전거`로 이동합니다.
+>- 출발점 : 시작점에서 목적지 : 끝점까지 `버스`로 이동합니다.
+>- 출발점 : 시작점에서 목적지 : 중간지점까지 `자전거`로 이동합니다.
+>- 출발점 : 중간지점에서 목적지 : 끝점까지 `버스`로 이동합니다.
+
+
+### 커멘드패턴 예시
+```java
+public class PeopleWithLottery {
+
+    private List<LotteryCommand> lotteryCommands;
+
+    public PeopleWithLottery(List<LotteryCommand> lotteryCommands) {
+        this.lotteryCommands = lotteryCommands;
+    }
+
+    public void addLotteryCommand(LotteryCommand lotteryCommand) {
+        lotteryCommands.add(lotteryCommand);
+    }
+
+    public void scratchAllLottery() {
+        for (int i = 0; i < lotteryCommands.size(); i++) {
+            LotteryCommand lotteryCommand = lotteryCommands.get(i);
+            lotteryCommand.scratch();
+        }
+        //초기화
+        lotteryCommands = new LinkedList<>();
+    }
+}
+
+public interface LotteryCommand {
+    void scratch();
+}
+
+public class InstantScratch implements LotteryCommand {
+    
+    private InstantLottery instantLottery;
+    private account Account;
+
+    public InstantScratch(InstantLottery instantLottery, Account account) {
+        this.instantLottery = instantLottery;
+        this.account = Account;
+    }
+
+    @Override
+    public void scratch() {
+      //instantLottery의 당첨을 확인하고 account에 돈을 집어 넣는 로직
+    }
+}
+
+public class InstantLottery {
+    
+    private boolean win;
+
+    public InstantLottery(boolean win) {
+        this.win = win;
+    }
+
+    public boolean isWin() {
+        return win;
+    }
+}
+
+public class Account {
+
+    private int balance;
+
+    public void putMoney(int money) {
+        balance += money;
+    }
+}
+
+```
+```java
+public class Main {
+    public static void main(String[] args) {
+        PeopleWithLottery whybe = new PeopleWithLottery(new LinkedList<>());
+        Account 와이비통장 = new Account();
+        
+        //즉석복권 구입
+        for (int i = 0; i < 10; i++) {
+            //즉석복권 생성 로직 
+            InstantLottery instantLottery = new InstantLottery(당첨여부);
+            //즉석복권긁기행위 객체 생성 및 커맨드 목록에 추가
+            InstantScratch 즉석복권긁기커맨드 = new InstantScratch(즉석복권, 와이비통장);
+            whybe.addLotteryCommand(즉석복권긁기커맨드);
+        }
+        
+        whybe.scratchAllLotery();
+    }
+}
+
+```
+
+### 전략패턴과 커맨드패턴의 차이점
+전략 패턴은 먼저 `어떻게` 라는 측면에 집중하게 됩니다. 하고자 하는 것은 이미 정해져 있고, 방법을 어떻게 할지에 대한 유연성을 고려하며 구현합니다. 인터페이스의 메소드에 직접적으로 의존을 하게 되어서, 해당 메소드의 parameter들에 강하게 영향을 받습니다. 이 때문에 위의 복권예시같은 로직을 수행하여 다른 인자가 필요하게 된다면 오버로딩을 해주어야하는데, 전략 패턴의 가치가 퇴색이 될 것입니다.
+
+하지만 커맨드 패턴은 `무엇을` 초점을 두게 됩니다. 어떻게 할지에 대한 방법은 외부에서 정의하며 주입을 해주며, 그것을 실행하는 것이 중요하기 때문입니다. 그래서 즉석 복권 혹은 번호식 복권 중 무엇을 긁을지에 대해서 구현할 때에는 전략 패턴보다는 커맨드 패턴이 조금 더 적합하다고 볼 수가 있습니다. 
+
+위의 예시에서는 커맨드 패턴은
+
+1. 무엇을 할지를 선택하면 해당 행위를 하기 위한 필요한 변수들을 같이 캡슐화하여 제공받기 때문에 유연하다.
+2. Receiver(Account)도 같이 제공을 받기 때문에 행위에 따른 영향을 받는 객체도 조건에 따라 다르게 설정할 수 있다.
+
+의 장점을 알 수가 있습니다.
+
 # State 패턴
 # Adapter 패턴
 # Proxy 패턴
