@@ -125,9 +125,35 @@ public class Singleton {
 - 싱글턴이 상태를 가지고 있다면 상황이 더 복잡해지며, 멀티 스레드 환경에서는 공유 변수 접근 시 적절하게 동기화가 이루어지지 않았다면 경쟁 상태(race condition)가 문제가 될 수 있으므로 주의해야 합니다.
 3. 변경에 취약해진다
 
+# Command 패턴
+커맨드 패턴(Command pattern)은 객체가 특정 기능을 바로 수행하거나 나중에 트리거할 때 필요한 모든 정보를 캡슐화하는 행동 패턴이다. 
+이렇게 하면, 나중에 순서대로 실행하기 위한 명령 목록을 구성하거나 되돌리기가 가능한 명령을 만드는 등이 가능하다. 커맨드 패턴이 캡슐화하는 정보는 다음과 같다.
+
+- 메서드명
+- 메서드를 소유하는 객체
+- 메서드 인자(parameter)
+
+## Command 패턴의 구성
+![command_pattern.png](../.vuepress/public/images/principle/command_pattern.png)
+Invoker 클래스는 Command 인터페이스를 가진 객체의 execute() 메서드를 호출한다. 
+사실 이는 ConcreteCommand 클래스의 객체로, execute() 메서드는 실제 작업을 하는 Receiver 클래스의 객체를 호출한다.
+
+- Invoker: 명령이 들어 있으며, execute() 메서드를 호출함으로써 ConcreteCommand 객체에게 특정 작업의 수행을 요청한다.
+- Receiver: 요구 사항을 수행하기 위해 어떤 일을 처리해야 하는지 알고 있는 객체다.
+- Command: 연산을 수행할 인터페이스를 정의한다. 모든 커맨드 객체는 이 인터페이스를 구현해야 하며, 모든 명령은 execute() 메서드 호출을 통해 수행된다. 이 메서드에서는 Receiver에 특정 작업을 처리하라는 지시를 전달한다.
+- ConcreteCommand: 이 클래스는 Command 인터페이스를 확장하고, execute() 메서드를 구현함으로써 Receiver에 있는 메서드를 호출하여 요청된 작업을 수행한다.
+
+## Command 패턴의 장점
+- 작업을 요청하는 클래스와 실제로 작업을 수행하는 클래스를 분리한다.
+- 기존 코드를 수정하지 않고 새로운 커맨드를 쉽게 추가할 수 있다.
+- 정보 시스템의 일반적인 특성은 트랜잭션(transaction)을 처리해야 한다는 것이다. 트랜잭션은 일련의 과정을 통해 데이터를 변경하는 것인데, 커맨드 패턴은 이런 트랜잭션의 모델링을 가능하게 한다
+
+## Command 패턴의 단점
+- 모든 작업이 독립적인 ConcreteCommand 클래스이므로 구현 및 유지보수해야 하는 클래스가 많다.
+- 단 하나의 커맨드에 대해 클래스가 많아진다.
+
 # Strategy 패턴
 # State 패턴
-# Command 패턴
 # Adapter 패턴
 # Proxy 패턴
 # Facade 패턴
