@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Clean Code-Rovert C.Martin | 나상민의 TIL</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="생각 정리">
+    
+    <link rel="preload" href="/TIL/assets/css/0.styles.dd5ac3b9.css" as="style"><link rel="preload" href="/TIL/assets/js/app.552d5468.js" as="script"><link rel="preload" href="/TIL/assets/js/2.99089f8b.js" as="script"><link rel="preload" href="/TIL/assets/js/12.6f8f06d4.js" as="script"><link rel="prefetch" href="/TIL/assets/js/10.99cc811c.js"><link rel="prefetch" href="/TIL/assets/js/11.ff56b2bb.js"><link rel="prefetch" href="/TIL/assets/js/13.86903d7a.js"><link rel="prefetch" href="/TIL/assets/js/14.6a285c2c.js"><link rel="prefetch" href="/TIL/assets/js/15.c782545e.js"><link rel="prefetch" href="/TIL/assets/js/16.26e618aa.js"><link rel="prefetch" href="/TIL/assets/js/17.c38a942d.js"><link rel="prefetch" href="/TIL/assets/js/18.bd0636bf.js"><link rel="prefetch" href="/TIL/assets/js/19.77d987ed.js"><link rel="prefetch" href="/TIL/assets/js/20.59fd4a95.js"><link rel="prefetch" href="/TIL/assets/js/21.af269ebb.js"><link rel="prefetch" href="/TIL/assets/js/22.8b910137.js"><link rel="prefetch" href="/TIL/assets/js/23.52af7a9c.js"><link rel="prefetch" href="/TIL/assets/js/3.6d70358d.js"><link rel="prefetch" href="/TIL/assets/js/4.449a2c8e.js"><link rel="prefetch" href="/TIL/assets/js/5.7329d13e.js"><link rel="prefetch" href="/TIL/assets/js/6.a667c83e.js"><link rel="prefetch" href="/TIL/assets/js/7.5fcb7a80.js"><link rel="prefetch" href="/TIL/assets/js/8.c8b96b86.js"><link rel="prefetch" href="/TIL/assets/js/9.5790487b.js">
+    <link rel="stylesheet" href="/TIL/assets/css/0.styles.dd5ac3b9.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/TIL/" class="home-link router-link-active"><img src="https://avatars1.githubusercontent.com/u/18749057?s=460&amp;v=4" alt="나상민의 TIL" class="logo"> <span class="site-name can-hide">나상민의 TIL</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/TIL/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="https://github.com/sm9171/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><a href="https://naccoon.tistory.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Blog
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/TIL/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="https://github.com/sm9171/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><a href="https://naccoon.tistory.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Blog
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Monthly I Learned</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Books</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/TIL/Books/Clean Code.html" class="active sidebar-link">Clean Code-Rovert C.Martin</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Principle</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="clean-code-rovert-c-martin"><a href="#clean-code-rovert-c-martin" class="header-anchor">#</a> Clean Code-Rovert C.Martin</h1> <p>완독: 진행중</p> <blockquote><p>로버트 C.마틴의 클린코드를 읽고 인상깊은 구문 정리</p></blockquote> <ul><li><p>46p. 코드는 위에서 아래로 이야기처럼 읽혀야 조음. 최대한 추상화 수준이 하나인 함수를 구현해라. 위에서 아래로 프로그램을 읽으면 추상화 수준이 한 단계씩 낮아짐
+(추상화 수준이 하나 - 라는 표현에 살짝 충격. 내가 모호하게 생각하고 있던 판단 기준을 명료하게 정리함)</p></li> <li><p>52p. 플래그 인수 피하기. 나는 함수 안에 여러가지를 처리할거예요~ 라 말하는거임.</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// bad</span>
+<span class="token function">render</span><span class="token punctuation">(</span>isFood<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// good</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>isFood<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">renderFood</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+  <span class="token function">renderOther</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li></ul></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/TIL/MIL/2022.09.html" class="prev">
+        2022년 9월
+      </a></span> <span class="next"><a href="/TIL/Principle/DesignPattern.html">
+        Singleton 패턴
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/TIL/assets/js/app.552d5468.js" defer></script><script src="/TIL/assets/js/2.99089f8b.js" defer></script><script src="/TIL/assets/js/12.6f8f06d4.js" defer></script>
+  </body>
+</html>
