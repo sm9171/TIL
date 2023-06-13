@@ -165,3 +165,116 @@ public class PercentDiscountPolicy extends DiscountPolicy {
 ### 할인 정책 구성하기
 Movie 생성자는 하나의 DiscountPolicy 클래스 인스턴스만 받지만, DiscountPolicy 생성자는 여러 개의 DiscountPolicy 클래스 인스턴스를 받는다.
 이처럼 생성자의 파라미터 목록을 이용해 초기화에 필요한 정보를 전달하도록 강제하면 올바른 상태를 가진 객체의 생성을 보장할 수 있다.
+
+## 4. 상속과 다형성
+
+### 컴파일 시간 의존성과 실행 시간 의존성
+1. 코드의 의존성과 실행 시점의 의존성이 서로 다를 수 있다. 객체와 클래스가 다르듯이.
+2. 설계가 유연해질수록 코드를 이해하고 디버깅하기는 어려워지고 반면 유연성을 억제하면 코드를 이해하고 디버깅하기는 쉬워지지만 재사용성과 확장 가능성은 낮아진다는 사실도 기억하라.
+
+### 차이에 의한 프로그래밍
+상속은 객체지향에서 코드를 재사용하기 위해 가장 널리 사용되는 방법이다. 
+상속을 이용하면 클래스 사이에 관계를 설정하는 것만으로 기존 클래스가 가지고 있는 모든 속성과 행동을 새로운 클래시에 포함시킬 수 있다.
+
+부모 클래스와 다른 부분만을 추가해서 새로운 클래스를 쉽고 빠르게 만드는 방법을 `차이에 의한 프로그래밍`이라고 부른다.
+
+### 상속과 인터페이스
+자식 클래스는 부모 클래스가 수신할 수 있는 모든 메시지를 수신할 수 있기 때문에 외부 객체는 자식 클래스를 부모 클래스와 동일한 타입으로 간주할 수 있다.
+자식 클래스가 부모 클래스를 대신하는 것을 업캐스팅이라고 부른다.
+
+### 다형성
+객체에서 동일한 메시지를 전송하지만 실제로 어떤 메서드가 실행될 것인지는 메시지를 수신하는 객체의 클래스가 무엇이냐에 따라 달라진다. 이를 다형성이라고 한다.
+다형성이란 동일한 메시지를 수신했을 때 객체의 타입에 따라 다르게 응답할 수 있는 능력을 의미한다. 따라서 다형적인 협력에 참여하는 객체들은 모두 같은 메시지를 이해할 수 있어야한다.(인터페이스)
+
+메시지와 메서드를 실행 지점에 바인딩 하는것을 지연 바인딩 혹은 동적 바인딩 이라고 부르고 이에 반해 함수 호출처럼 컴파일 시점에 실행될 함수나 프로시저를 결정하는 것은 초기 바인딩 또는 정적 바인딩이라고 한다.
+
+## 5. 추상화와 유연성
+### 추상화의 힘
+추상화의 장점
+1. 추상화의 계층만 따로 떼어 놓고 살펴보면 요구사항의 정책을 높은 수준에서 서술할 수 있다는 것이다.
+   1. 추상화를 사용하면 세부적인 내용을 무시한 채 상위 정책을 쉽고 간단하게 중요한 개념만으로 표현할 수 있다.
+   2. 추상화를 이용해 상위 정책을 기술한다는 것은 기본적인 애플리케이션의 협력 흐름을 기술한다는 것을 의미한다.
+2. 추상화를 이용하면 설계가 좀 더 유연해진다는 것이다.
+   1. 추상화를 이용해 상위 정책을 표현하면 기존 구조를 수정하지 않고도 새로운 기능을 쉽게 추가하고 확장할 수 있다.
+
+### 유연한 설계
+
+```java
+public class Movie {
+   public Money calculateMovieFee(Screening screening) {
+      if (discountPolicy == null) {
+		  return fee;
+      }
+
+      return fee.minus(discountPolicy.calculateDiscountAmount(screening));
+   }
+
+}
+```
+
+책임의 위치를 결정하기 위해 조건문을 사용하는 것은 협력의 설계 측면에서 대부분의 경우 좋지 않은 선택이다.
+
+```java
+public class NoneDiscountPolicy extends DiscountPolicy {
+   @Override
+   protected Money getDiscountAmount(Screening screening) {
+	   return Money.ZERO;
+   }
+}
+```
+
+이제 Movie 인스턴스에 NoneDiscountPolicy의 인스턴스를 연결해서 할인되지 않는 영화를 생성할 수 있다.
+
+```java
+Movie starWars = new Movie("스타워즈",
+        Duration.ofMinutes(210),
+        Money.wons(10000),
+        new NoneDiscountPolicy());
+```
+
+Movie와 DiscountPolicy는 수정하지 않고 NoneDiscountPolicy라는 새로운 클래스를 추가하는 것만으로 애플리케이션의 기능을 확장했다.
+
+### 추상 클래스와 인터페이스 트레이드오프
+
+NoneDiscountPolicy 클래스에서 getDiscountAmount() 메서드가 어떤 값을 교환하더라도 상관이 없다는 것을 알 수 있다.
+DiscountPolicy를 인터페이스로 바꾸고 NoneDiscountPolicy가 DiscountPolicy의 getDiscountAmount() 메서드가 아닌 calculateDiscountAmount() 오퍼레이션을 오버라이딩하도록 변경해라.
+
+```java
+public interface DiscountPolicy {
+   Money calculateDiscountAmount(Screening screening);
+}
+```
+
+```java
+public abstract class DefaultDiscountPolicy implements DiscountPolicy {
+   ...
+}
+```
+
+```java
+public class NoneDiscountPolicy implements DiscountPolicy {
+   @Override
+   public Money calculateDiscountAmount(Screening screening) {
+      return Money.ZERO;
+   }
+}
+```
+
+### 코드 재사용
+상속보다는 합성이 더 좋은 방법이라고 한다.
+합성은 다른 객체의 인스턴스를 자신의 인스턴스 변수로 포함해서 재사용하는 방법을 말한다.
+
+### 상속
+상속은 객체지향에서 코드를 재사용하기 위해 널리 사용하는 기법이다.
+하지만 두 가지 관점에서 설계에 안좋은 영향을 미친다.
+1. 캡슐화를 위반한다.
+   1. 자식 클래스가 부모 클래스에 강하게 결합되도록 만들기 때문에 부모클래스를 변경할 때 자식 클래스도 변경될 확률이 높다.
+2. 설계를 유연하지 못하게 한다.
+   1. 상속은 부모 클래스와 자식 클래스 사이의 관계를 컴파일 시점에 결정한다. 따라서 실행 시점에 객체의 종류를 변경하는 것이 불가능하다.
+   2. 인스턴스 변수로 관계를 연결하여 유연하게 변경할 수 있다.
+
+### 합성
+인터페이스에 정의된 메시지를 통해서만 코드를 재사용하는 방법을 합성이라고 한다.
+합성은 상속이 가지는 두 가지 문제점을 모두 해결한다.
+1. 정의된 메시지를 통해서만 재사용이 가능하기 때문에 구현을 효과적으로 캡슐화할 수 있다.
+2. 의존하는 인스턴스를 교체하는 것이 비교적 쉽기 때문에 설계를 유연하게 만든다.
